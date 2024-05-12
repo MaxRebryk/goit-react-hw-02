@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Description from '../Description/Description.jsx';
 import Options from '../Options/Options.jsx';
 import Feedback from '../Feedback/Feedback.jsx';
+import Notification from '../Notification/Notification.jsx';
 
 import './App.css';
 
@@ -40,7 +41,7 @@ function App() {
         setFeedback={setFeedback}
         total={totalFeedback}
       ></Options>
-      {totalFeedback > 0 && (
+      {totalFeedback > 0 ? (
         <Feedback
           good={feedback.good}
           neutral={feedback.neutral}
@@ -48,6 +49,8 @@ function App() {
           total={totalFeedback}
           positive={positive}
         />
+      ) : (
+        <Notification />
       )}
     </>
   );
